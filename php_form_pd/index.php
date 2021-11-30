@@ -7,8 +7,11 @@ $name       =   security($_POST["name"]   ??  false);
 $email      =   security($_POST["email"]  ??  false);
 $phone      =   security($_POST["phone"]  ??  false);
 $gender     =   $_POST["gender"] ??   false;
-$languages  =   $_POST["langs"] ??   false;
+$languages  =   $_POST["langs"]  ??   false;
 $submit     =   $_POST["submit"] ??   false;
+
+// global required values list
+$VALIDATED_LIST = ["english", "russian", "latvian", "japanese", "male", "famale"];
 
     /* Uz beigām man jau palika bik slinkums un tā vietā lai taisitu funkcijas un normālu regex visam, sāku taisīt šo.
         + Ja vērtēs tikai cik punkti ir izpildīti tad domāju arī šādi derēs. :D */
@@ -47,13 +50,22 @@ $submit     =   $_POST["submit"] ??   false;
         
         if(!$gender) {
             $errors["gender"] = "Jānorāda dzimums"; 
-        } else {
+        }
+        // Pārbaudam vai value netika izmainīta caur html DOM
+        if (!in_array($gender, $VALIDATED_LIST)){
+            $errors["gender"] = "Tāda dzimuma nepastāv";
         }
 
         if($languages) {
             // Pārbaudam cik ieraksti mum ir masīvā, ja mazāk par 2 izvadam kļūdu
             if (sizeof($languages) < 2) {
                 $errors["languages"] = "Jāizvēlas vismaz 2 valodas";
+            }
+            // Pārbaudam vai value netika izmainīta caur html DOM
+            foreach ($languages as $key => $value) {
+                if (!in_array($value, $VALIDATED_LIST)){
+                    $errors["gender"] = "Tādas valodas nepastāv";
+                }
             }
         } else {
             $errors["languages"] = "Jānorāda valodas";
