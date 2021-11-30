@@ -11,7 +11,9 @@ $languages  =   $_POST["langs"]  ??   false;
 $submit     =   $_POST["submit"] ??   false;
 
 // global required values list
-$VALIDATED_LIST = ["english", "russian", "latvian", "japanese", "male", "famale"];
+$VALIDATED_LIST_LANGUAGE = ["english", "russian", "latvian", "japanese"];
+$VALIDATED_LIST_GENDER = ["male", "famale"];
+
 
     /* Uz beigām man jau palika bik slinkums un tā vietā lai taisitu funkcijas un normālu regex visam, sāku taisīt šo.
         + Ja vērtēs tikai cik punkti ir izpildīti tad domāju arī šādi derēs. :D */
@@ -52,7 +54,7 @@ $VALIDATED_LIST = ["english", "russian", "latvian", "japanese", "male", "famale"
             $errors["gender"] = "Jānorāda dzimums"; 
         }
         // Pārbaudam vai value netika izmainīta caur html DOM
-        if (!in_array($gender, $VALIDATED_LIST)){
+        if (!in_array($gender, $VALIDATED_LIST_GENDER)){
             $errors["gender"] = "Tāda dzimuma nepastāv";
         }
 
@@ -63,7 +65,7 @@ $VALIDATED_LIST = ["english", "russian", "latvian", "japanese", "male", "famale"
             }
             // Pārbaudam vai value netika izmainīta caur html DOM
             foreach ($languages as $key => $value) {
-                if (!in_array($value, $VALIDATED_LIST)){
+                if (!in_array($value, $VALIDATED_LIST_LANGUAGE)){
                     $errors["gender"] = "Tādas valodas nepastāv";
                 }
             }
