@@ -1,0 +1,12 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    margin: 5px;
+    user-select: none;
+}
+.display-block {
+    display: block;
+}
