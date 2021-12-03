@@ -6,3 +6,7 @@ Secrured webpage of the any XSS attack. <br />
 [+]required<br />
 [+]xss attack security<br />
 [+]Handling<br />
+<br />
+
+## php forms pd
+Hash the password
