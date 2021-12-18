@@ -1,0 +1,228 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto; /*iecentre, jo 0 ir atstarpe nopaugsas un apaksas,bet auto no saniem*/
+}
+
+html {
+    font-size: 10px;
+    font-family: 'Roboto', sans-serif;
+    color: #111; 
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: #eeeeee;
+}
+
+header {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: initial; /*causpidigs*/
+    transition: all 0.5s ease-in;
+}
+
+.scroll-header {
+    background-color: #191919;
+}
+
+.nav-list {
+    display: flex; /*flex karto elementus uz līnijas ar vienadam atstarpem*/
+    justify-content: space-between; 
+    align-items: center; /*sakararto elementus vienada attaluma no augsas un apaksas*/
+    background-color: initial;   
+}
+
+.index-intro , .signup-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh; /*augstuma aiznem visu ekrana izmeru*/
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 2.8)), center no-repeat;    background-size: cover;
+}
+.hamburger-menu {
+    user-select: none;
+}
+/*1. limena .nav-list items*/
+.nav-list > li {
+    line-height: 8rem;
+    position: relative;
+}
+/*visiem linkiem, kas ieks .nav-list*/
+.nav-list a {
+    display: block;
+    color: #eeeeee;
+    padding: 0 1.5rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    transition: color 650ms;
+}
+
+.nav-list a:hover {
+    color: #02a52e;
+}
+
+.text {
+    width: 100%;
+    text-align: center;
+    color: #eeeeee;
+}
+/*specifiski h1 tekstam*/
+.text h1 {
+    font-size: 5rem;
+    margin: 2rem 0;
+}
+/*specifiski paragrafa tekstam*/
+.text p {
+    font-size: 2rem;
+}
+/*************Categories******************/
+.index-categories {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+.index-categories h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.index-categories-list {
+    display: grid;
+    /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
+    /*grid-template-columns: repeat( auto-fit, minmax(20rem, 1fr))*/
+    grid-template-columns: repeat( auto-fit, 20rem);
+    justify-content: center;
+    gap: 1rem;
+}
+
+.index-categories-list > div {
+    min-height: 20rem;
+    background-color: #191919;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 650ms; 
+}
+
+.index-categories-list > div:hover {
+    box-shadow: 7px 7px 5px #7d009c;
+}
+
+.index-categories-list h3 {
+    color: #eeeeee;
+    transition: all 650ms;
+}
+
+.index-categories-list > div:hover h3 {
+    color: #8b00a7;
+}
+/****Signup*****/
+
+.signup-form-box {
+    color: #191919;
+    background: rgba(238, 238, 238.5);
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 600px;
+}
+
+.signup-form-box h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 1rem;
+    outline: none;
+    border: 1px solid #034715;
+    background: initial;
+    font-size: 1.5rem;
+}
+
+::placeholder {
+    color: #034715;
+}
+
+button[type-submit] {
+    width: 100%;
+    padding: 1rem 0;
+    outline: none;
+    border: 1px solid #034715;
+    color: #034715;
+    background: rgba(3, 71, 71, .5);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/**Hamburger menu**/
+
+.hamburger-menu {
+    display: none;
+    line-height: 8rem;
+    cursor: pointer;
+}
+
+/* 6. aktiva klase*/
+
+.close-btn {
+    display: none;
+}
+
+/* Ja active, tad japarada close poga*/
+.active .close-btn{
+    display: none;
+}
+
+/*Ja active, tad janoslepj menu poga*/
+.active .menu-list{
+    display: none;
+}
+
+/*Ja active, tad jaapstrada .nav-list, kas default ir display:none, to var redzet pie media*/
+.active .nav-list{
+    display: flex;
+}
+
+/*lidz 768 pikselu lielumam, sauraka ekrana mainas uz vertikalu, nevis horizontalu*/
+@media (max-width: 600px){
+    .nav-list {
+        flex-direction: column;
+        display: none;
+        background-color: #191919;
+    }
+
+    .hamburger-menu {
+        display: block;
+        color: #eeeeee;
+    }
+
+}
