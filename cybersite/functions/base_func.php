@@ -14,7 +14,7 @@ function security(string $data):string {
 }
 
 // smart print
-function printArray(array $data):void {
+function printArray($data) {
     echo "<pre>";
     print_r($data);
     echo "</pre>";

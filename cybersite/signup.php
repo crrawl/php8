@@ -39,12 +39,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $pwd = password_hash($pwd, PASSWORD_BCRYPT);
     $sql = "INSERT INTO accounts (vards, epasts, lietotajvards, parole) VALUES ('$name', '$email', '$username', '$pwd')";
-
-    if (isset($errors)) {
+    
+    $err_counter = count($errors);
+    
+    if ($err_counter > 0) {
         echo "Cannot create query";
     } else {
         if (mysqli_query($conn, $sql)) {
             echo "New record created successfully";
+            header("Location: /php8/cybersite/account.php");
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
         }

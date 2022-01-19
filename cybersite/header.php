@@ -7,6 +7,7 @@
     <link href="https://fonts.google.com/specimen/Roboto+Mono?preview.text=Almost%20before%20we%20knew%20it,%20we%20had%20left%20the%20gr%C4%81&preview.text_type=custom"/>
     
     <link rel="stylesheet" href="assets/style/style.css">
+    <link rel="stylesheet" href="assets/style/account.css">
     <title>PHP Projekts</title>
 </head>
 <body>
