@@ -22,6 +22,7 @@
                     <li><a href="index.php">Sākums</a></li>
                     <li><a href="#">Par mums</a></li>
                     <li><a href="#">Blogs</a></li>
+                    <li><a href="account.php">account</a></li>
                     <li><a href="signup.php">Reģistrēties</a></li>
                     <li><a href="login.php">Ielogoties</a></li>
                 </ul>

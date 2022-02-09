@@ -1,60 +1,81 @@
 <?php
-include_once __DIR__ . "/database.php";
-include_once __DIR__ . "/functions/base_func.php";
-include_once 'header.php';
 
-echo "_GET ";
-printArray($_GET);
-$id = $_GET["ID"] ?? false;
-echo $id . " = ID <br>";
+    include_once __DIR__ . "/database.php";
+    include_once __DIR__ . "/functions/base_func.php";
+    include_once __DIR__ . '/header.php';
 
-echo "_POST ";
-printArray($_POST);
+    if (isset($_GET['ID']) && is_numeric($_GET['ID'])) {
+        $id = $_GET['ID'];
 
+        $sql = "SELECT * FROM accounts WHERE ID = '$id' LIMIT 1";
+        $result = mysqli_query($conn, $sql);
+        $user = mysqli_fetch_assoc($result); // $user te var būt vai nu masīvs vai NULL
 
-echo "====================================";
+        if (isset($_POST['submit'])) {
+            $name = security($_POST['name']);
+            $email = security($_POST['email']);
+            $uid = security($_POST['uid']);
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $errors = [];
 
-    $name = $_POST["name"] ?? false;
-    $email = $_GET["email"] ?? false;
-    $username = $_GET["username"] ?? false;
+            if (empty($name)) {
+                $errors["name"] = "Ievadi vārdu!";
+            } elseif (strlen($_POST['name']) < 4) {
+                $errors['name'] = "Vārdam jābūt vismaz 4 simbolus garam!";
+            }
 
-    $sql = "SELECT * FROM accounts WHERE ID = `$id`";
-    $result = mysqli_query($conn, $sql);
+            if (empty($_POST['email'])) {
+                $errors['email'] = "Ievadi e-pastu!";
+            } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                $errors['email'] = "E-pasts formāts nav korekts!";
+            }
 
-    $db_user = mysqli_fetch_assoc($result);
-    $db_id = $db_user['ID'];
+            if (empty($_POST['uid'])) {
+                $errors['uid'] = "Ievadi savu lietotājvārdu!";
+            } elseif (strlen($_POST['uid']) < 4) {
+                $errors['uid'] = "Lietotājvārdam jābūt vismaz 4 simbolus garam!";
+            }
 
-    echo "_DB_USER ";
-    printArray($db_user);
-
-    $sql = "UPDATE accounts SET vards = '$name', epasts = '$email', lietotajvards = '$username' WHERE ID = `$db_id`";
-
-    if (mysqli_query($conn, $sql)) {
-        echo "New record created successfully";
+            if (empty($errors)) {
+                $query = "UPDATE accounts SET uid = '$uid', name = '$name', email = '$email' WHERE ID = '$id'";
+                mysqli_query($conn, $query);
+            }
+        }
     } else {
-        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+        header("Location:" . __DIR__ . "account.php");
+        die();
     }
-}
-
-
 ?>
+<section class="signup-form">
+    <?php if(is_array($user)): ?>
+        <form action="" method="POST">
+            <table class="edit-box">
+                <tr>
+                    <th>UID</th>
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>ENTER</th>
+                </tr>
+                <tr>
+                    <td><input type="text" name="uid" value="<?= $uid ?? $user['uid'] ?>"></td>
+                    <td><input type="text" name="name" value="<?= $user['name']?>"></td>
+                    <td><input type="text" name="email" value="<?= $user['email']?>"></td>
+                    <td><button type="submit" name="submit">ENTER</button></td>
+                </tr>
+            </table>
+            <br><br>
+                <?php if (!empty($errors)): ?>
+                <?php foreach ($errors as $error): ?>
+                <p class = "error">
+                <?= $error ?>
+                </p>
+                <?php endforeach; ?>
+                <?php endif; ?> 
+        </form>
+        <?php else: ?>
+            <h3 style = "color: white">Tāds lietotājs nav atrasts!</h3>
+        <?php endif; ?>
+</section>
 
 
-<form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">
-    <table class="edit-box">
-        <tr>
-            <th>NAME</th>
-            <th>EMAIL</th>
-            <th>USERNAME</th>
-            <th>ENTER</th>
-        </tr>
-        <tr>
-            <td><input type="text" name="name" value="<?=$db_user['vards'] ?? ""?>"></td>
-            <td><input type="text" name="email" value="<?=$db_user['epasts'] ?? ""?>"></td>
-            <td><input type="text" name="username" value="<?=$db_user['lietotajvards'] ?? ""?>"></td>
-            <td><button type="submit" name="enter">ENTER</button></td>
-        </tr>
-    </table>
-</form>
+<?php include_once __DIR__ . '/footer.php'; ?> 

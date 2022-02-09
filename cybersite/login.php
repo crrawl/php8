@@ -1,35 +1,35 @@
 <?php 
-include_once 'header.php'; 
-include_once __DIR__ . "/database.php";
-include_once __DIR__ . "/functions/base_func.php";
-?>
-<?php
+    include_once 'header.php'; 
+    include_once __DIR__ . "/database.php";
+    include_once __DIR__ . "/functions/base_func.php";
+    ?>
+    <?php
 
-$name = security($_POST["name"] ?? false);
-$pwd = security($_POST["pwd"] ?? false);
+    $name = security($_POST["name"] ?? false);
+    $pwd = security($_POST["pwd"] ?? false);
 
-$sql = "SELECT * FROM accounts";
-$result = mysqli_query($conn, $sql);
+    $sql = "SELECT * FROM accounts";
+    $result = mysqli_query($conn, $sql);
 
-while($account = mysqli_fetch_assoc($result)){
-    printArray($account);
-}
-
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    printArray($_POST);
-    $errors = [] ?? "";
-
-
-    if($name && $pwd) {
-        if (strlen($name) < 4) {
-            $errors["username&pwd"] = "Lietotājvārdam ir jābūt vismaz 4 simboli garam";
-        }
-    } else {
-        $errors["username&pwd"] = "Lietotājvārds vai parole ir nekorekta";
+    while($account = mysqli_fetch_assoc($result)){
+        printArray($account);
     }
-}
+
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        printArray($_POST);
+        $errors = [] ?? "";
+
+
+        if($name && $pwd) {
+            if (strlen($name) < 4) {
+                $errors["username&pwd"] = "Lietotājvārdam ir jābūt vismaz 4 simboli garam";
+            }
+        } else {
+            $errors["username&pwd"] = "Lietotājvārds vai parole ir nekorekta";
+        }
+    }
 ?>
     <section class="signup-form">
 
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
         </div>
     </section>
-    <?php include_once 'footer.php'; ?>
+    <?php include_once  __DIR__ . "footer.php"; ?>
     <?php
     echo "<br />";
     if ($errors) {
