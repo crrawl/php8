@@ -12,31 +12,31 @@
         $user = mysqli_fetch_assoc($result); // $user te var būt vai nu masīvs vai NULL
 
         if (isset($_POST['submit'])) {
-            $name = security($_POST['name']);
-            $email = security($_POST['email']);
-            $uid = security($_POST['uid']);
+            $name = security($_POST['name'] ?? false);
+            $email = security($_POST['email'] ?? false);
+            $uid = security($_POST['uid'] ?? false);
 
-            $errors = [];
+            $errors = [] ?? false;
 
-            if (empty($name)) {
+            if (!$name) {
                 $errors["name"] = "Ievadi vārdu!";
             } elseif (strlen($_POST['name']) < 4) {
                 $errors['name'] = "Vārdam jābūt vismaz 4 simbolus garam!";
             }
 
-            if (empty($_POST['email'])) {
+            if (!$_POST['email']) {
                 $errors['email'] = "Ievadi e-pastu!";
             } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                 $errors['email'] = "E-pasts formāts nav korekts!";
             }
 
-            if (empty($_POST['uid'])) {
+            if (!$_POST['uid']) {
                 $errors['uid'] = "Ievadi savu lietotājvārdu!";
             } elseif (strlen($_POST['uid']) < 4) {
                 $errors['uid'] = "Lietotājvārdam jābūt vismaz 4 simbolus garam!";
             }
 
-            if (empty($errors)) {
+            if (!$errors) {
                 $query = "UPDATE accounts SET uid = '$uid', name = '$name', email = '$email' WHERE ID = '$id'";
                 mysqli_query($conn, $query);
             }

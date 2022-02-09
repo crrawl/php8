@@ -16,14 +16,13 @@
                 <th>UID</th>
                 <th>NAME</th>
                 <th>EMAIL</th>
-                <th>EDIT</th>
             </tr>
                 <?php while($user = mysqli_fetch_assoc($result)):?>
             <tr>
                 <td><?=$user["ID"];?></td>
+                <td><?=$user["uid"];?></td>
                 <td><?=$user["name"];?></td>
                 <td><?=$user["email"];?></td>
-                <td><?=$user["uid"];?></td>
                 <td><a href="update.php?ID=<?=$user["ID"];?>">UPDATE</a></td>
             </tr>
                 <?php endwhile;?>
