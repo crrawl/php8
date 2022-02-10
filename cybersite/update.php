@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     include_once __DIR__ . "/database.php";
     include_once __DIR__ . "/functions/base_func.php";

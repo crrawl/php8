@@ -22,9 +22,18 @@
                     <li><a href="index.php">Sākums</a></li>
                     <li><a href="#">Par mums</a></li>
                     <li><a href="#">Blogs</a></li>
-                    <li><a href="account.php">account</a></li>
-                    <li><a href="signup.php">Reģistrēties</a></li>
-                    <li><a href="login.php">Ielogoties</a></li>
+                    <?php
+                        if (!isset($_SESSION)){
+                            session_start();
+                        }
+
+                        if (isset($_SESSION["uid"])){
+                            echo "<li><a href=\"account.php\">account</a></li>";
+                            echo "<li><a href=\"signup.php\">Reģistrēties</a></li>";
+                        } else {
+                            echo "<li><a href=\"login.php\">Ielogoties</a></li>";
+                        }
+                    ?>
                 </ul>
             </div>
         </nav>

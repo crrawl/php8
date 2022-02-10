@@ -1,6 +1,12 @@
 <?php
+    session_start();
+
     include_once __DIR__ . "/database.php";
     include_once __DIR__ . "/header.php";
+
+    if (!isset($_SESSION["uid"])){
+        header("Location: login.php");
+    }
 
     $sql = "SELECT * FROM accounts";
     $result = mysqli_query($conn, $sql);
@@ -29,3 +35,7 @@
         </table>
     <?php endif; ?>
 </section>
+<div class="logout">
+    <h4>Hello, <?=$_SESSION["uid"]?></h4>
+    <a href="logout.php">logout</a>
+</div>
