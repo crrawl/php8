@@ -65,13 +65,13 @@
                 </tr>
             </table>
             <br><br>
-                <?php if (!empty($errors)): ?>
-                <?php foreach ($errors as $error): ?>
-                <p class = "error">
-                <?= $error ?>
-                </p>
-                <?php endforeach; ?>
-                <?php endif; ?> 
+                <?php
+                    if (!empty($errors)){
+                        foreach ($variable as $key => $value) {
+                            echo "<p class = \"error\">" . $value . "</p>";
+                        }
+                    }
+                ?>
         </form>
         <?php else: ?>
             <h3 style = "color: white">Tāds lietotājs nav atrasts!</h3>

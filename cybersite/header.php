@@ -29,9 +29,9 @@
 
                         if (isset($_SESSION["uid"])){
                             echo "<li><a href=\"account.php\">account</a></li>";
-                            echo "<li><a href=\"signup.php\">Reģistrēties</a></li>";
                         } else {
                             echo "<li><a href=\"login.php\">Ielogoties</a></li>";
+                            echo "<li><a href=\"signup.php\">Reģistrēties</a></li>";
                         }
                     ?>
                 </ul>

@@ -4,7 +4,7 @@
 
     $name       = security($_POST["name"]   ?? false);
     $email      = security($_POST["email"]  ?? false);
-    $username   = security($_POST["uid"]    ?? false);
+    $uid        = security($_POST["uid"]    ?? false);
     $pwd        = security($_POST["pwd"]    ?? false);
     $pwdrepeat  = security($_POST["pwdrepeat"] ?? false);
 
@@ -15,8 +15,17 @@
 
         if ($name) {
             if (strlen($name) < 4) {
+                $errors["name"] = "Vārdam ir jābūt vismaz 4 simboli garam";
+            }
+        } else {
+            $errors["name"] = "Vārds ir obligāts";
+        }
+
+        if ($uid) {
+            if (strlen($name) < 4) {
                 $errors["username"] = "Lietotājvārdam ir jābūt vismaz 4 simboli garam";
             }
+
         } else {
             $errors["username"] = "Lietotājvārds ir obligāts";
         }
@@ -38,7 +47,7 @@
         }
 
         $pwd = password_hash($pwd, PASSWORD_BCRYPT);
-        $sql = "INSERT INTO accounts (uid, name, email, pwd) VALUES ('$username', '$name', '$email', '$pwd')";
+        $sql = "INSERT INTO accounts (uid, name, email, pwd) VALUES ('$uid', '$name', '$email', '$pwd')";
         
         $err_counter = count($errors);
         
@@ -54,7 +63,7 @@
         }
     }
 
-    include_once 'header.php'; 
+    include_once __DIR__. '/header.php'; 
 ?>
 
     <section class="signup-form">
@@ -64,6 +73,13 @@
             <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
 
                 <div class="input-group">
+                <?php
+                    if (!empty($errors)){
+                        foreach ($errors as $key => $value) {
+                            echo "<p class = \"error\">" . $value . "</p>";
+                        }
+                    }
+                ?>
                     <input type="text" name="name" placeholder="Vārds" value="<?= $name ?? "" ?>">
                 </div>
 
@@ -72,7 +88,7 @@
                 </div>
 
                 <div class="input-group">
-                    <input type="text" name="uid" placeholder="Lietotājvārds" value="<?= $username ?? "" ?>">
+                    <input type="text" name="uid" placeholder="Lietotājvārds" value="<?= $uid ?? "" ?>">
                 </div>
 
                 <div class="input-group">
@@ -89,12 +105,5 @@
 
     </section>
 
-<?php
-
-    include_once  __DIR__ . "/footer.php";
-    echo "<br />";
-
-    if ($errors) {
-        printArray($errors);
-    }
+<?php include_once  __DIR__ . "/footer.php"; ?>
 
