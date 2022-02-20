@@ -1,12 +1,15 @@
-### PHP Projects 
+### PHP8 
 
-## php forms pd
-Secrured webpage of the any XSS attack. <br />
-[+]Validation<br />
-[+]required<br />
-[+]xss attack security<br />
-[+]Handling<br />
+## cybersite
+[+]Login/Logout <br />
+[+]Register <br />
+[+]profile <br />
+[+]update db data <br />
+[+]select db data <br />
+[+]Design by Saldus Tehnikums & yuukuramu
 <br />
 
-## php forms pd
-Hash the password
+## C.I.A fake site
+[+]Login/Logout <br />
+[+]C.I.A design by google mateirals
+<br />
