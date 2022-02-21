@@ -1,6 +1,10 @@
 <?php 
     session_start();
 
+    if (isset($_SESSION["uid"])){
+        header("Location: index.php");
+    }
+
     include_once __DIR__ . "/header.php"; 
     include_once __DIR__ . "/database.php";
     include_once __DIR__ . "/functions/base_func.php";
