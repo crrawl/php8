@@ -1,4 +1,5 @@
 
+/*************fix styles******************/
 *{
     margin: 0;
     padding: 0;
@@ -16,7 +17,7 @@ ul {
 .wrapper {
     width: 90%;
     max-width: 1000px;
-    margin: 0 auto; /*iecentre, jo 0 ir atstarpe nopaugsas un apaksas,bet auto no saniem*/
+    margin: 0 auto;
 }
 
 html {
@@ -30,13 +31,14 @@ body {
     background-color: #eeeeee;
 }
 
+/**navigation bar**/
 header {
     position: fixed;
     z-index: 1000;
     width: 100%;
     top: 0;
     left: 0;
-    background-color: initial; /*causpidigs*/
+    background-color: initial; 
     transition: all 0.5s ease-in;
 }
 
@@ -45,29 +47,30 @@ header {
 }
 
 .nav-list {
-    display: flex; /*flex karto elementus uz līnijas ar vienadam atstarpem*/
+    display: flex; 
     justify-content: space-between; 
-    align-items: center; /*sakararto elementus vienada attaluma no augsas un apaksas*/
+    align-items: center; 
     background-color: initial;   
 }
 
+/*************index.php******************/
 .index-intro , .signup-form {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh; /*augstuma aiznem visu ekrana izmeru*/
+    height: 100vh; 
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 2.8)), center no-repeat;    background-size: cover;
 }
 .hamburger-menu {
     user-select: none;
 }
-/*1. limena .nav-list items*/
+
 .nav-list > li {
     line-height: 8rem;
     position: relative;
 }
-/*visiem linkiem, kas ieks .nav-list*/
+
 .nav-list a {
     display: block;
     color: #eeeeee;
@@ -86,16 +89,18 @@ header {
     text-align: center;
     color: #eeeeee;
 }
-/*specifiski h1 tekstam*/
+
 .text h1 {
     font-size: 5rem;
     margin: 2rem 0;
 }
-/*specifiski paragrafa tekstam*/
+
 .text p {
     font-size: 2rem;
 }
-/*************Categories******************/
+
+/****categories*****/
+
 .index-categories {
     margin-top: 5rem;
     margin-bottom: 2rem;
@@ -138,7 +143,8 @@ header {
 .index-categories-list > div:hover h3 {
     color: #8b00a7;
 }
-/****Signup*****/
+
+/*************signup.php******************/
 
 .signup-form-box {
     color: #191919;
@@ -191,28 +197,30 @@ button[type-submit] {
     cursor: pointer;
 }
 
-/* 6. aktiva klase*/
+/* 6. active class*/
 
 .close-btn {
     display: none;
 }
 
-/* Ja active, tad japarada close poga*/
+/* if active, show close button */
 .active .close-btn{
     display: none;
 }
 
-/*Ja active, tad janoslepj menu poga*/
+/* if active, hide menu button */
 .active .menu-list{
     display: none;
 }
 
-/*Ja active, tad jaapstrada .nav-list, kas default ir display:none, to var redzet pie media*/
+/* if active, then handle .nav-list, who default is display:none;, that we can see at the media*/
+
 .active .nav-list{
     display: flex;
 }
 
 /*lidz 768 pikselu lielumam, sauraka ekrana mainas uz vertikalu, nevis horizontalu*/
+/* to 768 pixels, narrow screen changing to vertical, not horizontal*/
 @media (max-width: 600px){
     .nav-list {
         flex-direction: column;
@@ -226,3 +234,6 @@ button[type-submit] {
     }
 
 }
+
+/*************account.php******************/
+
