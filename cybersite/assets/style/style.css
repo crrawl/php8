@@ -30,6 +30,7 @@ body {
     font-size: 1.6rem;
     background-color: #eeeeee;
 }
+input[type="submit"] {cursor: pointer;}
 
 /**navigation bar**/
 header {
@@ -53,14 +54,19 @@ header {
     background-color: initial;   
 }
 
-/*************index.php******************/
-.index-intro , .signup-form {
+.index-intro, 
+.signup-form, 
+.login-form, 
+.accounts,
+.update-account {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100vh; 
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 2.8)), center no-repeat;    background-size: cover;
+    color: #eeeeee;
 }
 .hamburger-menu {
     user-select: none;
@@ -84,6 +90,7 @@ header {
     color: #02a52e;
 }
 
+/*************index.php******************/
 .text {
     width: 100%;
     text-align: center;
@@ -101,7 +108,7 @@ header {
 
 /****categories*****/
 
-.index-categories {
+section.index-categories {
     margin-top: 5rem;
     margin-bottom: 2rem;
 }
@@ -144,9 +151,9 @@ header {
     color: #8b00a7;
 }
 
-/*************signup.php******************/
+/*************signup.php and login.php******************/
 
-.signup-form-box {
+.signup-form-box, .login-form-box{
     color: #191919;
     background: rgba(238, 238, 238.5);
     padding: 2rem;
@@ -155,7 +162,7 @@ header {
     max-width: 600px;
 }
 
-.signup-form-box h2 {
+.signup-form-box h2, .login-form-box h2 {
     margin-bottom: 1rem;
     text-align: center;
 }
@@ -169,7 +176,7 @@ input {
     width: 100%;
     padding: 1rem;
     outline: none;
-    border: 1px solid #034715;
+    /* border: 1px solid #034715; */
     background: initial;
     font-size: 1.5rem;
 }
@@ -219,7 +226,6 @@ button[type-submit] {
     display: flex;
 }
 
-/*lidz 768 pikselu lielumam, sauraka ekrana mainas uz vertikalu, nevis horizontalu*/
 /* to 768 pixels, narrow screen changing to vertical, not horizontal*/
 @media (max-width: 600px){
     .nav-list {
@@ -235,5 +241,29 @@ button[type-submit] {
 
 }
 
-/*************account.php******************/
+/**************update.php******************/
+.user-accounts {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    padding: 10px;
+    grid-row-gap: 1em;
+
+    font-family: 'Ubuntu', sans-serif;
+}
+.account:nth-of-type(6n) {
+    border: none;
+} 
+a.account {
+    background-color: rgba(226, 59, 26, 0.932);
+    color: inherit;
+}
+.account {
+    font-size: 15px!important;
+    border-right: rgba(0, 0, 0, 0.274) 2px solid;
+    background-color: rgba(70, 70, 70, 0.993);
+    padding: 10px 20px 10px 20px;
+    font-size: 30px;
+    text-align: center;
+}
+/*************update.php******************/
 
