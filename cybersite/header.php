@@ -8,7 +8,7 @@
     
     <link rel="stylesheet" href="assets/style/style.css">
     <link rel="stylesheet" href="assets/style/account.css">
-    <title>PHP Projekts</title>
+    <title>cybersite</title>
 </head>
 <body>
     <header>

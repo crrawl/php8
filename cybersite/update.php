@@ -2,7 +2,7 @@
     session_start();
 
     include_once __DIR__ . "/database.php";
-    include_once __DIR__ . "/functions/base_func.php";
+    include_once __DIR__ . "/functions.php";
     include_once __DIR__ . '/header.php';
 
     if (isset($_GET['ID']) && is_numeric($_GET['ID'])) {
@@ -13,9 +13,9 @@
         $user = mysqli_fetch_assoc($result); // $user te var būt vai nu masīvs vai NULL
 
         if (isset($_POST['submit'])) {
-            $name = security($_POST['name'] ?? false);
-            $email = security($_POST['email'] ?? false);
-            $uid = security($_POST['uid'] ?? false);
+            $name   = filter($_POST['name'] ?? false);
+            $email  = filter($_POST['email'] ?? false);
+            $uid    = filter($_POST['uid'] ?? false);
 
             $errors = [] ?? false;
 

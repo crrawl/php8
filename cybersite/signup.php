@@ -5,18 +5,18 @@
     }
 
     include_once __DIR__ . "/database.php";
-    include_once __DIR__ . "/functions/base_func.php";
+    include_once __DIR__ . "/functions.php";
 
-    $name       = security($_POST["name"]   ?? false);
-    $email      = security($_POST["email"]  ?? false);
-    $uid        = security($_POST["uid"]    ?? false);
-    $pwd        = security($_POST["pwd"]    ?? false);
-    $pwdrepeat  = security($_POST["pwdrepeat"] ?? false);
+    $name       = filter($_POST["name"]   ?? false);
+    $email      = filter($_POST["email"]  ?? false);
+    $uid        = filter($_POST["uid"]    ?? false);
+    $pwd        = filter($_POST["pwd"]    ?? false);
+    $pwdrepeat  = filter($_POST["pwdrepeat"] ?? false);
 
     $errors = [] ?? "";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // printArray($_POST);
+        // show($_POST, "POST");
 
         if ($name) {
             if (strlen($name) < 4) {
@@ -79,7 +79,6 @@
     }
 
     include_once __DIR__. '/header.php'; ?> 
-?>
 
     <section class="signup-form">
 

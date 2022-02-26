@@ -7,11 +7,11 @@
 
     include_once __DIR__ . "/header.php"; 
     include_once __DIR__ . "/database.php";
-    include_once __DIR__ . "/functions/base_func.php";
+    include_once __DIR__ . "/functions.php";
 
-    $uid   = security($_POST["uid"] ?? false);
-    $pwd    = security($_POST["pwd"] ?? false);
-    $submit = security($_POST["submit"] ?? false);
+    $uid    = filter($_POST["uid"] ?? false);
+    $pwd    = filter($_POST["pwd"] ?? false);
+    $submit = filter($_POST["submit"] ?? false);
 
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
