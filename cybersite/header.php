@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.google.com/specimen/Roboto+Mono?preview.text=Almost%20before%20we%20knew%20it,%20we%20had%20left%20the%20gr%C4%81&preview.text_type=custom"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="stylesheet" href="assets/style/style.css">
     <link rel="stylesheet" href="assets/style/account.css">
     <title>cybersite</title>
