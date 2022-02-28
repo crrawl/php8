@@ -51,30 +51,30 @@
     }
 ?>
 <section class="login-form">
-
-    <div class="login-form-box">
-        <h2>Ielogošanās</h2>
-        <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">
-            <div class="input-group">
-            <span>
-                <?php
-                if (!empty($errors)) {
-                    foreach ($errors as $key => $value) {
-                        echo $value;
-                    }
-                }
-                ?>
-            </span>
-                <input type="text" name="uid" placeholder="Lietotājvārds / Epasts">
-            </div>
-
-            <div class="input-group">
-                <input type="password" name="pwd" placeholder="Parole">
-            </div>
-            <input type="submit" name="submit" >
-
-        </form>
+    <div>
+        <h1>Ielogošanās</h1>
     </div>
+
+    <form class="login-form-box" action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">
+        <div class="input-group">
+        <span>
+            <?php
+            if (!empty($errors)) {
+                foreach ($errors as $key => $value) {
+                    echo $value;
+                }
+            }
+            ?>
+        </span>
+            <input type="text" name="uid" placeholder="Lietotājvārds / Epasts">
+        </div>
+
+        <div class="input-group">
+            <input type="password" name="pwd" placeholder="Parole">
+        </div>
+        <input type="submit" name="submit" value="Iesūtīt">
+
+    </form>
 </section>
 <?php include_once  __DIR__ . "/footer.php"; ?>
 

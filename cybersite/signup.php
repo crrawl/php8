@@ -81,10 +81,10 @@
     include_once __DIR__. '/header.php'; ?> 
 
     <section class="signup-form">
-
-        <div class="signup-form-box">
-            <h2>Reģistrēšanās</h2>
-            <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
+            <div>
+                <h1>Reģistrēšanās</h1>
+            </div>
+            <form class="signup-form-box" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
                 <?php
                     if (!empty($errors)){
                         foreach ($errors as $key => $value) {
@@ -112,9 +112,8 @@
                         <input type="password" name="pwdrepeat" placeholder="Parole atkārtoti">
                     </div>
                     
-            <input type="submit" name="submit" value="Reģistrēties">
+                <input type="submit" name="submit" value="Reģistrēties">
             </form>
-        </div>
 
     </section>
 

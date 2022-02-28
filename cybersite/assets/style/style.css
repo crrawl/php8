@@ -152,48 +152,54 @@ section.index-categories {
 }
 
 /*************signup.php and login.php******************/
+.login-form-box,
+.signup-form-box {
+    display: grid;
+    /* grid-template-columns: auto; */
+    grid-template-rows: auto auto auto;
+    grid-row-gap: 10px;
 
-.signup-form-box, .login-form-box{
-    color: #191919;
-    background: rgba(238, 238, 238.5);
+    background-color: rgba(70, 70, 70, 0.993);
+    /* background-color: inherit; */
     padding: 2rem;
-    border-radius: 1rem;
+    /* border-radius: 1rem; */
     width: 90%;
     max-width: 600px;
 }
 
-.signup-form-box h2, .login-form-box h2 {
-    margin-bottom: 1rem;
-    text-align: center;
+div h1 {
+    margin-bottom: 10px;
 }
 
-.input-group {
-    margin-bottom: 2rem;
-    position: relative;
-}
-
-input {
+.login-form-box input,
+.signup-form-box input {
     width: 100%;
-    padding: 1rem;
+    height: 40px;
+
+    border: none;
     outline: none;
-    /* border: 1px solid #034715; */
-    background: initial;
-    font-size: 1.5rem;
+
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.425);
+    
+    background-color: inherit;
+    color: #eeeeee;
+
+    /* background-color: inherit; */
+    
 }
 
-::placeholder {
-    color: #034715;
-}
+.login-form-box input[type="submit"],
+.signup-form-box input[type="submit"] {
+    padding: 10px;
+    /* background-color: rgba(226, 59, 26, 0.801); */
+    background-color: #8b00a7b9;
 
-button[type-submit] {
-    width: 100%;
-    padding: 1rem 0;
-    outline: none;
-    border: 1px solid #034715;
-    color: #034715;
-    background: rgba(3, 71, 71, .5);
-    font-size: 1.5rem;
-    cursor: pointer;
+    border: none;
+    color: inherit;
 }
 
 /**Hamburger menu**/
@@ -239,7 +245,7 @@ button[type-submit] {
         color: #eeeeee;
     }
 
-}
+} 
 
 /**************update.php******************/
 .user-accounts {
@@ -250,9 +256,11 @@ button[type-submit] {
 
     font-family: 'Ubuntu', sans-serif;
 }
+
 .account:nth-of-type(10n) {
     border: none;
 } 
+
 a.account {
     background-color: rgba(226, 59, 26, 0.932);
     color: inherit;
@@ -265,6 +273,7 @@ a.account {
     font-size: 30px;
     text-align: center;
 }
+
 /*************update.php******************/
  .update-account {
     display: grid;
@@ -279,6 +288,7 @@ a.account {
 .update-account-item:nth-of-type(6n) {
     border: none;
 } 
+
 .update-account-item button[type="submit"] {
     border: none;
     outline: none;
@@ -287,6 +297,7 @@ a.account {
     height: 100%;
     padding: 10px;
     background-color: rgba(226, 59, 26, 0.932);
+    /* background-color: #8b00a7; */
     color: inherit;
 }
 
@@ -298,9 +309,11 @@ a.account {
     font-size: 30px;
     text-align: center;
 }
+
 .update-account-item input {
     outline: none;
     border: none;
     color: #eeeeee;
     border-bottom: 1px rgba(0, 0, 0, 0.445) solid;
 }
+
