@@ -257,12 +257,9 @@ div h1 {
     font-family: 'Ubuntu', sans-serif;
 }
 
-.account:nth-of-type(10n) {
-    border: none;
-} 
-
 a.account {
-    background-color: rgba(226, 59, 26, 0.932);
+    /* background-color: rgba(226, 59, 26, 0.932); */
+    background-color: #8b00a7;
     color: inherit;
 }
 .account {
@@ -285,10 +282,6 @@ a.account {
     color: #eeeeee;
 } 
 
-.update-account-item:nth-of-type(6n) {
-    border: none;
-} 
-
 .update-account-item button[type="submit"] {
     border: none;
     outline: none;
@@ -296,8 +289,8 @@ a.account {
     width: 100%;
     height: 100%;
     padding: 10px;
-    background-color: rgba(226, 59, 26, 0.932);
-    /* background-color: #8b00a7; */
+    /* background-color: rgba(226, 59, 26, 0.932); */
+    background-color: #8b00a7;
     color: inherit;
 }
 
@@ -311,9 +304,14 @@ a.account {
 }
 
 .update-account-item input {
-    outline: none;
+    font-family: 'Ubuntu', sans-serif;
     border: none;
-    color: #eeeeee;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    background-color: inherit;
     border-bottom: 1px rgba(0, 0, 0, 0.445) solid;
+    color: inherit;
 }
 
