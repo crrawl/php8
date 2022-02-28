@@ -112,7 +112,7 @@
                         <input type="password" name="pwdrepeat" placeholder="Parole atkārtoti">
                     </div>
                     
-                <button type="submit" name="submit">Reģistrēties</button>
+            <input type="submit" name="submit" value="Reģistrēties">
             </form>
         </div>
 

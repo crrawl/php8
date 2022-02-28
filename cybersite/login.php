@@ -50,9 +50,9 @@
         }
     }
 ?>
-<section class="signup-form">
+<section class="login-form">
 
-    <div class="signup-form-box">
+    <div class="login-form-box">
         <h2>Ielogošanās</h2>
         <form action="<?=htmlspecialchars($_SERVER["PHP_SELF"])?>" method="POST">
             <div class="input-group">
