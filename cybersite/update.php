@@ -13,9 +13,9 @@
         $user = mysqli_fetch_assoc($result); // $user te var būt vai nu masīvs vai NULL
 
         if (isset($_POST['submit'])) {
+            $uid    = filter($_POST['uid'] ?? false);
             $name   = filter($_POST['name'] ?? false);
             $email  = filter($_POST['email'] ?? false);
-            $uid    = filter($_POST['uid'] ?? false);
 
             $errors = [] ?? false;
 
@@ -25,13 +25,13 @@
                 $errors['name'] = "Vārdam jābūt vismaz 4 simbolus garam!";
             }
 
-            if (!$_POST['email']) {
+            if (!$email) {
                 $errors['email'] = "Ievadi e-pastu!";
             } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                 $errors['email'] = "E-pasts formāts nav korekts!";
             }
 
-            if (!$_POST['uid']) {
+            if (!$uid) {
                 $errors['uid'] = "Ievadi savu lietotājvārdu!";
             } elseif (strlen($_POST['uid']) < 4) {
                 $errors['uid'] = "Lietotājvārdam jābūt vismaz 4 simbolus garam!";
@@ -47,35 +47,36 @@
         die();
     }
 ?>
-<section class="signup-form">
+<section class="update-accounts">
+    <div class="header">
+        <h1>update account</h1>
+    </div>
     <?php if(is_array($user)): ?>
-        <form action="" method="POST">
-            <table class="edit-box">
-                <tr>
-                    <th>UID</th>
-                    <th>NAME</th>
-                    <th>EMAIL</th>
-                    <th>ENTER</th>
-                </tr>
-                <tr>
-                    <td><input type="text" name="uid" value="<?= $uid ?? $user['uid'] ?>"></td>
-                    <td><input type="text" name="name" value="<?= $user['name']?>"></td>
-                    <td><input type="text" name="email" value="<?= $user['email']?>"></td>
-                    <td><button type="submit" name="submit">ENTER</button></td>
-                </tr>
-            </table>
-            <br><br>
+        <form class="update-account" id="update-account-submit" action="" method="POST">
+             <!-- headers -->
+             <div class="update-account-item">UID</div>
+             <div class="update-account-item">NAME</div>
+             <div class="update-account-item">EMAIL</div>
+             <div class="update-account-item">SEND</div>
+
+            <div class="update-account-item"><input type="text" name="uid" value="<?= $uid ?? $user['uid'] ?>"></div>
+            <div class="update-account-item"><input type="text" name="name" value="<?= $name ?? $user['name']?>"></div>
+            <div class="update-account-item"><input type="text" name="email" value="<?= $email ?? $user['email']?>"></div>
+            <div class="update-account-item"><button type="submit" name="submit">ENTER</button></div>
+
+            <!-- <a href="#" onclick="document.getElementById('update-account-submit').submit()" class="update-account-item">SEND</a> -->
+
                 <?php
                     if (!empty($errors)){
-                        foreach ($variable as $key => $value) {
+                        foreach ($errors as $key => $value) {
                             echo "<p class = \"error\">" . $value . "</p>";
                         }
                     }
                 ?>
         </form>
-        <?php else: ?>
-            <h3 style = "color: white">Tāds lietotājs nav atrasts!</h3>
-        <?php endif; ?>
+    <?php else: ?>
+        <h3 style = "color: white">Tāds lietotājs nav atrasts!</h3>
+    <?php endif; ?>
 </section>
 
 

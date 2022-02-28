@@ -38,7 +38,7 @@
                 <div class="account"><?=$user["email"];?></div>
                 <a href="update.php?ID=<?=$user["ID"];?>" class="account">UPDATE</a>
                 <a href="delete.php?ID=<?=$user["ID"];?>" class="account" style="background-color:#393939" >DELETE</a>
-                <?php endwhile;?>
+            <?php endwhile;?>
         </div>
     <?php else: ?>
         <h1>Nav atrastu kontu!!</h1>
