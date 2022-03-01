@@ -66,11 +66,8 @@
         
         $err_counter = count($errors);
         
-        if ($err_counter > 0) {
-            echo "Cannot create query";
-        } else {
+        if (!$err_counter > 0) {
             if (mysqli_query($conn, $sql)) {
-                // echo "New record created successfully";
                 header("Location: account.php");
             } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);

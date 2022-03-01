@@ -58,7 +58,8 @@ header {
 .signup-form, 
 .login-form, 
 .accounts,
-.update-accounts {
+.update-accounts,
+.post-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -151,9 +152,10 @@ section.index-categories {
     color: #8b00a7;
 }
 
-/*************signup.php and login.php******************/
+/*************signup.php and login.php and post.php******************/
 .login-form-box,
-.signup-form-box {
+.signup-form-box,
+.post-form-box {
     display: grid;
     /* grid-template-columns: auto; */
     grid-template-rows: auto auto auto;
@@ -172,7 +174,8 @@ div h1 {
 }
 
 .login-form-box input,
-.signup-form-box input {
+.signup-form-box input,
+.post-form-box input {
     width: 100%;
     height: 40px;
 
@@ -193,7 +196,8 @@ div h1 {
 }
 
 .login-form-box input[type="submit"],
-.signup-form-box input[type="submit"] {
+.signup-form-box input[type="submit"],
+.post-form-box input[type="submit"] {
     padding: 10px;
     /* background-color: rgba(226, 59, 26, 0.801); */
     background-color: #8b00a7b9;
@@ -315,3 +319,68 @@ a.account {
     color: inherit;
 }
 
+/*************post.php******************/
+.post-form-box textarea {
+    outline: none;
+    width: 100%;
+    height: 10em;
+    background-color: inherit;
+
+    font-family: 'Roboto', sans-serif;
+    color: #eeeeee;
+    font-size: 14px;
+    padding: 10px; 
+    resize: none;
+}
+
+/* section #posts in post.php */
+
+section#posts {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+    grid-template-columns: repeat(auto-fill, minmax(400px, auto));
+    grid-gap: 10px;
+
+    padding: 2px;
+}
+
+.post-box {
+    min-height: 100px;
+    min-width: 400px;
+    padding: 5px;
+    color: #eeeeee;
+    background-color: #191919;
+    border-radius: 5px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    
+}
+
+.post-header {
+    text-align: left;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #8b00a7;
+    width: 100%;
+
+}
+.post-content {
+    padding: 10px 0;
+}
+.author-time {
+    border-top: 1px solid #8b00a7;
+    padding-top: 5px;
+    width: 100%;
+
+}
+.author, 
+.post-time {
+    display: flex;
+    /* flex: right; */
+    flex-direction: column;
+    /* justify-content: end; */
+    text-align: right;
+
+}
