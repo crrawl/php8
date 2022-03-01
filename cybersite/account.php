@@ -28,6 +28,7 @@
             <div class="account">EMAIL</div>
             <div class="account">UPDATE</div>
             <div class="account">DELETE</div>
+            <div class="account">TAKE</div>
 
             <!-- account list -->
             <?php while($user = mysqli_fetch_assoc($result)):?>
@@ -38,6 +39,7 @@
                 <div class="account"><?=$user["email"];?></div>
                 <a href="update.php?ID=<?=$user["ID"];?>" class="account">UPDATE</a>
                 <a href="delete.php?ID=<?=$user["ID"];?>" class="account" style="background-color:#393939" >DELETE</a>
+                <a href="switch.php?ID=<?=$user["ID"];?>" class="account">TAKE</a>
             <?php endwhile;?>
         </div>
     <?php else: ?>

@@ -254,7 +254,7 @@ div h1 {
 /**************update.php******************/
 .user-accounts {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto auto;
     padding: 10px;
     grid-row-gap: 1em;
 
